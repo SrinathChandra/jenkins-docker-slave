@@ -1,11 +1,12 @@
 FROM ubuntu:18.04
 
-LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
+LABEL maintainer="Srinath Chandra <csrinath123@gmail.com>"
 
 # Make sure the package repository is up to date.
 RUN apt-get update && \
     apt-get -qy full-upgrade && \
     apt-get install -qy git && \
+    apt-get install -qy make && \
 # Install a basic SSH server
     apt-get install -qy openssh-server && \
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd && \
